@@ -1,31 +1,77 @@
-# 🧪 CMPUT 301 – Lab 6: JUnit & Javadoc
+# CMPUT 301 : Lab 6 – JUnit and Javadoc
 
-## 🎯 Objective
-This lab focuses on writing, testing, and documenting Java code.  
-You will implement and test methods in the `CityList` class, write **JUnit 5** unit tests, and generate **Javadoc** documentation for your main source files.
+## Student Details
+
+**Full Name:** Junayed Ahmed  
+**CCID:** junayed  
 
 ---
 
-## 🏙️ Tasks
+## References and Resources
 
-### 1️⃣ Implement Methods in `CityList.java`
-You must implement the following methods:
+- CMPUT 301 Lab 6 Slides – JUnit and Javadoc Exercise  
+- [Infoworld – Comparing Java Objects with equals() and hashCode()](https://www.infoworld.com/article/3305792/comparing-java-objects-with-equals-and-hashcode.html)  
+- [HowToDoInJava – JUnit 5 Expected Exception Examples](https://howtodoinjava.com/junit5/expected-exception-example/)  
+- [Oracle Java Documentation – Javadoc Tool Reference](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javadoc.html)  
+- CMPUT 301 eClass – Lab 6 Participation Guide  
 
-| Method | Description | Test Requirements |
+---
+
+## Verbal Collaboration
+
+N/A (Did not collaborate)
+
+---
+
+## Design and Implementation
+
+### Objective
+
+Implement, test, and document the `CityList` class by writing methods that handle list operations on `City` objects.  
+Use **JUnit 5** to validate method functionality and generate **Javadoc** documentation for `City.java` and `CityList.java`.
+
+---
+
+### User Guide
+
+1. Open the project in IntelliJ IDEA or Android Studio.  
+2. Review `City.java` and `CityList.java` — all methods include detailed Javadoc comments.  
+3. Run all tests in `CityListTest.java` to verify functionality.  
+4. Generate Javadoc documentation by:  
+   - Using the IDE menu: **Tools → Generate JavaDoc...**  
+   - Or running this command in the terminal:  
+     ```bash
+     javadoc -d javadoc -sourcepath ListyCity/src com.example.listycity
+     ```
+5. Open `javadoc/index.html` in a browser to view your generated documentation.
+
+---
+
+## Testing Checklist
+
+| Test | Expected Outcome |
+|:--|:--|
+| **Add City** | City successfully added to the list. |
+| **Add Existing City** | Throws `IllegalArgumentException`. |
+| **Has City** | Returns `true` for existing city, `false` for non-existing. |
+| **Delete City** | Removes city; no longer present in list. |
+| **Delete Non-existent City** | Throws `IllegalArgumentException`. |
+| **Count Cities** | Returns accurate number of cities in the list. |
+| **Get Cities (Sorted)** | Returns list of cities in ascending alphabetical order. |
+| **Javadoc Generated** | HTML documentation created in `/javadoc/`. |
+
+---
+
+## Known Issues and Fixes
+
+| Issue | Cause | Fix |
 |:--|:--|:--|
-| `boolean hasCity(City city)` | Returns whether a given city exists in the list. | Test for both existing and non-existing cities. |
-| `void delete(City city)` | Removes a city if it exists, otherwise throws `IllegalArgumentException`. | Test successful deletion and exception handling. |
-| `int countCities()` | Returns how many cities are currently in the list. | Verify count before and after adding cities. |
-
-> 📘 **Helpful References**
-> - [Comparing Java Objects with equals and hashCode](https://www.infoworld.com/article/3305792/comparing-java-objects-with-equals-and-hashcode.html)  
-> - [JUnit 5 Expected Exception Examples](https://howtodoinjava.com/junit5/expected-exception-example/)
+| **"Test events were not received"** | Occurs when IntelliJ or Gradle test runner desyncs with JUnit. | Restart IntelliJ or rebuild the project. Then re-run tests using the green “Run All Tests” icon. |
+| **"Error creating Javadoc"** | Javadoc generation fails if output directory or source paths are incorrect. | Ensure you have a `javadoc/` folder at project root and correct package paths (e.g., `com.example.listycity`). |
+| **Javadoc not updating** | The IDE cached older docs. | Delete the old `javadoc/` folder, then regenerate via *Tools → Generate JavaDoc...*. |
+| **JUnit test not detected** | Missing `@Test` import or incorrect classpath. | Ensure `import org.junit.jupiter.api.Test;` is present and your project SDK uses JUnit 5. |
 
 ---
 
-### 2️⃣ Add Javadoc Documentation
-Add detailed **Javadoc** comments to all methods in:
-- `City.java`
-- `CityList.java`
+## File Structure
 
-Then **generate** the documentation and output it to:
